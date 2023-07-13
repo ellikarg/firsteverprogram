@@ -14,6 +14,6 @@ SHEET = GSPREAD_CLIENT.open('Travel_Cost_Index')
 
 tci = SHEET.worksheet('TCI')
 
-data = TCI.get_all_values()
+data = TCI.get_all_values()[0]
 
 print(data)
