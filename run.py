@@ -69,31 +69,43 @@ def vacation_level():
     return level
 
 
-def get_tci(country_input, level):
+def get_tci(country_input, level_input):
     """
     Searches for the country the user entered in the excel worksheet 'TCI',
     Searches for the level of adventure/comfort that the user entered and
     Retrieves the correct Travel-Cost-Index (TCI) for the right country and 
     The right level of adventure/comfort.
     """
+    print('\nThank you for your request!\nYour Travel-Cost-Index is being calculated...')
     country_cell = tci.find(country_input)
     country_row = country_cell.row
-    level_cell = tci.find(level)
+    level_cell = tci.find(level_input)
     level_col = level_cell.col
     country_level = tci.cell(country_row, level_col).value
-    print(country_level)
-
     return country_level
+
+
+def get_budget(tci_user, days_input):
+    """
+    Calculates the budget the user needs to undertake the Travel by
+    Multiplying the TCI from the get_tci() function with the number
+    Of days the user has available for the travel.
+    """
+    print('\nYour Your Travel-Cost-Index is ready:')
+    budget = "{:.2f}".format(round(float(tci_user), 2) * days_input)
+    print(f'You will need {tci_user}€ per day as soon as you are at your destination. For your travel of {days_input} days you will need a budget of {budget}€!')
+    return budget
 
 
 def main():
     """
     Calls all the functions above.
     """
-    # vacation_days()
+    days_input = vacation_days()
     country_input = vacation_country()
-    level = vacation_level()
-    get_tci(country_input, level)
+    level_input = vacation_level()
+    tci_user = get_tci(country_input, level_input)
+    get_budget(tci_user, days_input)
 
 
 print("Happy to see you at the Travel Cost Calculator!")
