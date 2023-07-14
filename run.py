@@ -19,8 +19,19 @@ data = tci.get_all_values()
 def vacation_days():
     """
     Ask for the days that the user has available
+    Validates the data that the user inserts
     """
-    days = input('How many days do you have available?\n')
+    while True:
+        days = input('How many days do you have available? Insert here: ')
+
+        try:
+            days = int(days)
+            break
+
+        except ValueError:
+            print('\nInvalid data entry, please insert a whole number!')
+            print("Example: Insert '21' for three weeks\n")
+        
     return days
 
 
@@ -48,8 +59,8 @@ def main():
     Call all the functions above
     """
     vacation_days()
-    vacation_country()
-    vacation_level()
+    # vacation_country()
+    # vacation_level()
 
 
 print("Happy to see you at the Travel Cost Calculator!")
