@@ -1,32 +1,205 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Travel Cost Calculator
 
-Welcome,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
-
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+Explanation
+Mockup
+Live Site
 
 ---
 
-Happy coding!
+## Table of Contents
+
+- [Travel Cost Calculator](#travel-cost-calculator)
+  - [Table of Contents](#table-of-contents)
+  - [Objective](#objective)
+  - [Brief](#brief)
+  - [UX &#8722; User Experience Design](#ux--user-experience-design)
+    - [User Requirements](#user-requirements)
+      - [First Time User](#first-time-user)
+      - [Returning User](#returning-user)
+      - [Interested Party](#interested-party)
+    - [Initial Concept](#initial-concept)
+      - [Wireframes](#wireframes)
+        - [Desktop](#desktop)
+        - [Mobile](#mobile)
+      - [Colour Scheme](#colour-scheme)
+      - [Typography](#typography)
+      - [Imagery](#imagery)
+  - [Logic](#logic)
+    - [Initial Flow](#initial-flow)
+    - [Python Logic](#python-logic)
+  - [Features](#features)
+    - [Existing Features](#existing-features)
+      - [UX](#ux)
+      - [Keywords](#keywords)
+    - [Features Left to Implement](#features-left-to-implement)
+  - [Data Model](#data-model)
+  - [Technologies Used](#technologies-used)
+    - [Python Packages](#python-packages)
+    - [Other Tech](#other-tech)
+  - [Testing](#testing)
+  - [Development](#development)
+    - [GitHub](#github)
+    - [Working With Python](#working-with-python)
+      - [Venv](#venv)
+      - [Packages](#packages)
+      - [Debugging](#debugging)
+    - [Google Sheets](#google-sheets)
+      - [Creating Sheets](#creating-sheets)
+      - [API Credentials](#api-credentials)
+  - [Deployment](#deployment)
+    - [Heroku](#heroku)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+    - [Acknowledgements](#acknowledgements)
+
+---
+
+## Objective
+
+Design an interactive quiz that uses an existing API for questions and answers.
+The project should run in a CLI, deployed via Heroku, using Python.
+
+***The needs within this project are not genuine and are made purely
+for the purpose of completing my Code Institute project***
+
+---
+
+## Brief
+
+The goal of this site is to provide an interactive quiz with increasing
+difficulty levels. The final product should:
+
+- be programmatically error free
+- be written using Python
+- have a varied question base to allow replayability
+- handle all user input errors gracefully and appropriately
+- give clear instructions regarding use and valid inputs
+
+---
+
+## UX &#8722; User Experience Design
+
+### User Requirements
+
+#### First Time User
+
+
+#### Returning User
+
+
+#### Interested Party
+
+### Initial Concept
+
+
+#### Wireframes
+
+
+##### Desktop
+
+##### Mobile
+
+#### Colour Scheme
+
+#### Typography
+
+#### Imagery
+
+---
+
+## Logic
+
+### Initial Flow
+
+### Python Logic
+
+---
+
+## Features
+
+### Existing Features
+
+#### UX
+
+#### Keywords
+
+### Features Left to Implement
+
+---
+
+## Data Model
+
+---
+
+## Technologies Used
+
+### Python Packages
+
+### Other Tech
+
+---
+
+## Testing
+
+[Go to Testing file](TESTING.md)
+
+---
+
+## Bugs
+
+### Current
+
+### Resolved
+
+
+---
+
+## Development
+
+### GitHub
+
+#### Cloning
+
+#### Editing
+
+### Working With Python
+
+#### Venv
+
+#### Packages
+
+#### Debugging
+
+### Google Sheets
+
+#### Creating Sheets
+
+#### API Credentials
+
+---
+
+## Deployment
+
+### Heroku
+
+---
+
+## Credits
+
+### Content
+
+- The data about the travel cost indices for different countries was retrieved from this website: https://www.budgetyourtrip.com/asia/rankings
+- the data for the living cost indices was retrieved from the ranking on this website: https://livingcost.org/cost
+- both data bases were merged in excel
+- 
+
+### Media
+
+
+
+### Acknowledgements
+
+
+
+---
