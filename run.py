@@ -44,10 +44,6 @@ def vacation_country():
     country_list = tci.col_values(1)
     if country in country_list:
         print(f'The country {country} is in the list')
-        # country_cell = tci.find(country)
-        # country_row = country_cell.row
-        # country_level = tci.cell(country_row,2).value
-        # print(country_level)
     else:
         print(f'The country {country} is not in the list')
     
@@ -82,10 +78,8 @@ def get_tci(country_input, level):
     """
     country_cell = tci.find(country_input)
     country_row = country_cell.row
-    print(country_row)
     level_cell = tci.find(level)
     level_col = level_cell.col
-    print(level_col)
     country_level = tci.cell(country_row, level_col).value
     print(country_level)
 
