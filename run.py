@@ -19,8 +19,8 @@ data = tci.get_all_values()
 
 def vacation_days():
     """
-    Ask for the days that the user has available
-    Validate the data that the user inserts
+    Asks for the days that the user has available and
+    Validates the data that the user inserts.
     """
     while True:
         days = input('How many days do you have available? Insert here: ')
@@ -38,7 +38,7 @@ def vacation_days():
 
 def vacation_country():
     """
-    Ask for the country the user wants to travel to
+    Asks for the country the user wants to travel to.
     """
     country = input('Where would you like to travel to? Insert a country: ')
     country_list = tci.col_values(1)
@@ -52,8 +52,8 @@ def vacation_country():
 
 def vacation_level():
     """
-    Ask for the level of adventure/comfort that the user would like to experience
-    Validate the data that the user inserts
+    Asks for the level of adventure/comfort that the user would like to experience and
+    Validates the data that the user inserts.
     """
     options = ['a', 'b', 'c', 'd']
     print('\nWhich level of adventure/comfort do you want to experience?\n')
@@ -71,10 +71,10 @@ def vacation_level():
 
 def get_tci(country_input, level):
     """
-    Search for the country the user entered in the excel worksheet 'TCI'
-    Search for the level of adventure/comfort that the user entered
-    Retrieve the correct Travel-Cost-Index (TCI) for the right country and 
-    The right level of adventure/comfort
+    Searches for the country the user entered in the excel worksheet 'TCI',
+    Searches for the level of adventure/comfort that the user entered and
+    Retrieves the correct Travel-Cost-Index (TCI) for the right country and 
+    The right level of adventure/comfort.
     """
     country_cell = tci.find(country_input)
     country_row = country_cell.row
@@ -88,7 +88,7 @@ def get_tci(country_input, level):
 
 def main():
     """
-    Call all the functions above
+    Calls all the functions above.
     """
     # vacation_days()
     country_input = vacation_country()
