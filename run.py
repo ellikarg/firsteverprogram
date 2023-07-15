@@ -24,15 +24,18 @@ def vacation_days():
     Validates the data that the user inserts.
     """
     while True:
-        days = input('How many days do you have available? Insert here: ')
+        days = input('\nHow many days do you have available? Insert here: ')
 
         try:
             days = int(days)
-            break
 
         except ValueError:
             print('\nInvalid data entry, please insert a whole number!')
-            print("Example: Insert '21' for three weeks\n")
+            print("Example: Insert '21' for three weeks")
+        
+        else:
+            print('>>>Thank you for your input!\n')
+            break
 
     return days
 
@@ -45,19 +48,23 @@ def vacation_country():
     global country_list
     country = input('Where would you like to travel to? Insert a country: ')
     country_list = tci.col_values(1)
-    validate_country(country)
+    validate_country()
     return country
 
 
-def validate_country(country):
+def validate_country():
     """
     Validates the user input for a country and calls the search_country
     Function if the country cannot be found within the country_list.
     """
+    global country
+
     if country in country_list:
-        print(f'Thanks, the country {country} is in my list!')
+        print(f'>>>Thanks, the country {country} is in my list!')
     else:
         search_country()
+
+    return
 
 
 def search_country():
@@ -72,18 +79,22 @@ def search_country():
 2: Show me an alphabetical list of all 132 countries"""
     print(search_country_options)
 
-    no_country = input('\nPlease choose one of the options above: ')
+    while True:
+        no_country = input('\nPlease choose one of the options above: ')
+        if no_country == '1':
+            print(1)
+            break
+        elif no_country == '2':
+            print(country_list)
+            country_from_list = input(
+                '\nPlease choose one of the countries listed above: ')
+            country = country_from_list
+            validate_country()
+            break
+        else:
+            print("\nInvalid data entry, please insert either '1' or '2'.")
 
-    if no_country == '1':
-        print(1)
-    elif no_country == '2':
-        print(country_list)
-        country_from_list = input(
-            'Please choose one of the countries listed above: ')
-        country = country_from_list
-        validate_country(country)
-    else:
-        print('Invalid data')
+    return
 
 
 def vacation_level():
@@ -99,7 +110,7 @@ def vacation_level():
         level = input(
             'Please choose one of the options by inserting the according lowercase letter: ')
         if level not in options:
-            print("\nInvalid data entry, please insert 'a', 'b', 'c' or 'd'")
+            print("\nInvalid data entry, please insert 'a', 'b', 'c' or 'd'.")
         else:
             break
     return level
@@ -112,7 +123,7 @@ def get_tci(country_input, level_input):
     Retrieves the correct Travel-Cost-Index (TCI) for the right country and 
     The right level of adventure/comfort.
     """
-    print('\nThank you for your request!\nYour Travel-Cost-Index is being calculated...')
+    print('\n>>>Thank you for your request!\nYour Travel-Cost-Index is being calculated...')
     country_cell = tci.find(country_input)
     country_row = country_cell.row
     level_cell = tci.find(level_input)
@@ -127,9 +138,10 @@ def get_budget(tci_user, days_input):
     Multiplying the TCI from the get_tci() function with the number
     Of days the user has available for the travel.
     """
-    print('\nYour Your Travel-Cost-Index is ready:')
+    global country
+    print('\nYour Travel-Cost-Index is ready:')
     budget = "{:.2f}".format(round(float(tci_user), 2) * days_input)
-    print(f'You will need {tci_user} € per day as soon as you are at your destination. For your travel of {days_input} days you will need a budget of {budget} €!')
+    print(f'You will need {tci_user} € per day as soon as you are in {country}. For your travel of {days_input} days you will need a budget of {budget} €!')
     return budget
 
 
@@ -137,12 +149,12 @@ def main():
     """
     Calls all the functions above.
     """
-    # days_input = vacation_days()
+    days_input = vacation_days()
     country_input = vacation_country()
-    # level_input = vacation_level()
-    # tci_user = get_tci(country_input, level_input)
-    # get_budget(tci_user, days_input)
+    level_input = vacation_level()
+    tci_user = get_tci(country_input, level_input)
+    get_budget(tci_user, days_input)
 
 
-print("Happy to see you at the Travel Cost Calculator!")
+print("\nHappy to see you at the Travel Cost Calculator!")
 main()
