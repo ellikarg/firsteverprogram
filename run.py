@@ -13,8 +13,9 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Travel_Cost_Index')
 
 tci = SHEET.worksheet('TCI')
-
 data = tci.get_all_values()
+country = None
+country_list = None
 
 
 def vacation_days():
@@ -40,14 +41,49 @@ def vacation_country():
     """
     Asks for the country the user wants to travel to.
     """
+    global country
+    global country_list
     country = input('Where would you like to travel to? Insert a country: ')
     country_list = tci.col_values(1)
-    if country in country_list:
-        print(f'The country {country} is in the list')
-    else:
-        print(f'The country {country} is not in the list')
-    
+    validate_country(country)
     return country
+
+
+def validate_country(country):
+    """
+    Validates the user input for a country and calls the search_country
+    Function if the country cannot be found within the country_list.
+    """
+    if country in country_list:
+        print(f'Thanks, the country {country} is in my list!')
+    else:
+        search_country()
+
+
+def search_country():
+    """
+    Gives the user two options to search for the country she/he wants to travel to.
+    """
+    global country
+    print(f'\nOh no, the country {country} is not in my list.')
+    search_country_options = """ 
+    \nWhat do you want to do now?
+    \n1: Maybe I mistyped, let me insert the first (capitalized) letter of the country I want to go to 
+2: Show me an alphabetical list of all 132 countries"""
+    print(search_country_options)
+
+    no_country = input('\nPlease choose one of the options above: ')
+
+    if no_country == '1':
+        print(1)
+    elif no_country == '2':
+        print(country_list)
+        country_from_list = input(
+            'Please choose one of the countries listed above: ')
+        country = country_from_list
+        validate_country(country)
+    else:
+        print('Invalid data')
 
 
 def vacation_level():
@@ -93,7 +129,7 @@ def get_budget(tci_user, days_input):
     """
     print('\nYour Your Travel-Cost-Index is ready:')
     budget = "{:.2f}".format(round(float(tci_user), 2) * days_input)
-    print(f'You will need {tci_user}€ per day as soon as you are at your destination. For your travel of {days_input} days you will need a budget of {budget}€!')
+    print(f'You will need {tci_user} € per day as soon as you are at your destination. For your travel of {days_input} days you will need a budget of {budget} €!')
     return budget
 
 
@@ -101,11 +137,11 @@ def main():
     """
     Calls all the functions above.
     """
-    days_input = vacation_days()
+    # days_input = vacation_days()
     country_input = vacation_country()
-    level_input = vacation_level()
-    tci_user = get_tci(country_input, level_input)
-    get_budget(tci_user, days_input)
+    # level_input = vacation_level()
+    # tci_user = get_tci(country_input, level_input)
+    # get_budget(tci_user, days_input)
 
 
 print("Happy to see you at the Travel Cost Calculator!")
