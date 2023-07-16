@@ -32,7 +32,7 @@ def vacation_days():
             days = int(days)
 
         except ValueError:
-            print('\nInvalid data entry, please insert a whole number!')
+            print('\nThat did not work, please insert a whole number!')
             print("Example: Insert '21' for three weeks")
 
         else:
@@ -64,6 +64,7 @@ def validate_country():
     global country_list
     if country in country_list:
         print(f'>>> Thanks, the country {country.capitalize()} is in my database!')
+        time.sleep(1)
     else:
         search_country()
     return
@@ -79,7 +80,7 @@ def search_country():
     print(f'\n>>> Oh no, I cannot find the country {country}. Either it is because of a typo or you named a country that is not in my database of 132 available countries.')
     search_country_options = """
     \nWhat do you want to do now?
-    \n1: Search a country by its region
+    \n1: Search by regions
 2: Search in the whole list of available countries"""
     print(search_country_options)
 
@@ -92,7 +93,7 @@ def search_country():
             search_country_by_list()
             break
         else:
-            print('\nInvalid data entry, please insert either 1 or 2.')
+            print('\nThat did not work, please insert either 1 or 2.')
 
     return
 
@@ -130,10 +131,10 @@ def search_country_by_region():
                 if converted_country_from_region in country_list:
                     break
                 else:
-                    print('\nInvalid data entry, please try again.')
+                    print("\nThat did not work, maybe it's easier to use the copy and paste function than typing it out!\n")
             break           
         else:
-            print('\nInvalid data entry, please try again.')
+            print("\nThat did not work, maybe it's easier to use the copy and paste function than typing it out!\n")
 
     country = converted_country_from_region
     validate_country()
@@ -160,7 +161,8 @@ def search_country_by_list():
         if converted_country_from_list in country_list:
             break
         else:
-            print('\nInvalid data entry, please try again.')
+            print("\nThat did not work, maybe it's easier to use the copy and paste function than typing it out!\n")
+
 
     country = converted_country_from_list
     validate_country()
@@ -178,7 +180,7 @@ def vacation_level():
     vacation_level_options="""
 Please choose a letter from the following options:
 a: I'll travel like a backpacker
-b: I'll want some fancy hotels and food once in a while
+b: I'll want some comfy hotels and costly food - but only once in a while
 c: I'm all luxury
 d: I'm fed up with tourism - I want to live there like a local!"""
     print(vacation_level_options)
@@ -187,7 +189,7 @@ d: I'm fed up with tourism - I want to live there like a local!"""
         level=input(
             '\nPlease choose one of the options (a, b, c or d): ')
         if level not in options:
-            print("\nInvalid data entry, please insert a, b, c or d.")
+            print("\nThat did not work, please insert a, b, c or d.")
         else:
             break
     return level
