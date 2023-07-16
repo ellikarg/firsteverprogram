@@ -1,6 +1,7 @@
 # Travel Cost Calculator
 
-Explanation
+Welcome to the Travel Cost Calculator - a friendly tool to help you estimate how much money you will need for your next travel!
+
 Mockup
 Live Site
 
@@ -18,12 +19,6 @@ Live Site
       - [Returning User](#returning-user)
       - [Interested Party](#interested-party)
     - [Initial Concept](#initial-concept)
-      - [Wireframes](#wireframes)
-        - [Desktop](#desktop)
-        - [Mobile](#mobile)
-      - [Colour Scheme](#colour-scheme)
-      - [Typography](#typography)
-      - [Imagery](#imagery)
   - [Logic](#logic)
     - [Initial Flow](#initial-flow)
     - [Python Logic](#python-logic)
@@ -57,7 +52,7 @@ Live Site
 
 ## Objective
 
-Design an interactive quiz that uses an existing API for questions and answers.
+The objective is to write a programme which calculates the travel costs that can be expected going to a certain country, for a certain time and at a certain level of comfort.
 The project should run in a CLI, deployed via Heroku, using Python.
 
 ***The needs within this project are not genuine and are made purely
@@ -67,12 +62,11 @@ for the purpose of completing my Code Institute project***
 
 ## Brief
 
-The goal of this site is to provide an interactive quiz with increasing
-difficulty levels. The final product should:
+The goal of this programme is to provide knowledge of what costs can be expected for a travel (excluding the initial transportation by bus, train, airplain etc. to arrive there and get back). The final version of this programme should:
 
 - be programmatically error free
 - be written using Python
-- have a varied question base to allow replayability
+- have a database for >100 countries
 - handle all user input errors gracefully and appropriately
 - give clear instructions regarding use and valid inputs
 
@@ -83,32 +77,32 @@ difficulty levels. The final product should:
 ### User Requirements
 
 #### First Time User
-
+<ul>
+  <li>as a first time user I am interested in the travel costs that I can expect on a daily basis as well as for the whole length of my travel</li>
+  <li>as a programmer I would like to be able to provide a clear, useful and easy to use programme</li>
+</ul>
 
 #### Returning User
-
+<ul>
+  <li>as a returning User I am interested in financially planning the upcoming travel</li>
+  <li>as a frequent traveller I maybe will want to compare the travel costs in different countries</li>
+</ul>
 
 #### Interested Party
+<ul>
+  <li>as someone who is interested in how the programme functions, I want to see how the code was written, what the data source is and how the user inputs are validated </li>
+</ul>
+
 
 ### Initial Concept
 
-
-#### Wireframes
-
-
-##### Desktop
-
-##### Mobile
-
-#### Colour Scheme
-
-#### Typography
-
-#### Imagery
+The first idea came up when I was thinking about the question how many days I could spend in a specific country with a certain budget. I was interested in such a calculation because I was in this situation in the beginning of this year. Thinking through the idea of writing a python programme that answers this question, I reason that most people normally have a certain amount of time available and want to know the budget they need, rather than having endless time and a certain budget. So here we are, now there is a programme telling you roughly how much budget you can expect for your next travel. The data will of course not be accurate for each individual person, but it can be a start and help planning.
 
 ---
 
 ## Logic
+
+
 
 ### Initial Flow
 
@@ -143,15 +137,6 @@ difficulty levels. The final product should:
 ## Testing
 
 [Go to Testing file](TESTING.md)
-
----
-
-## Bugs
-
-### Current
-
-### Resolved
-
 
 ---
 
