@@ -13,6 +13,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Travel_Cost_Index')
 
 tci = SHEET.worksheet('TCI')
+regions = SHEET.worksheet('Regions')
 data = tci.get_all_values()
 country = None
 country_list = None
@@ -34,7 +35,7 @@ def vacation_days():
             print("Example: Insert '21' for three weeks")
 
         else:
-            print('>>>Thank you for your input!\n')
+            print('>>> Thank you for your input!\n')
             break
 
     return days
@@ -46,7 +47,7 @@ def vacation_country():
     """
     global country
     global country_list
-    country = input('Where would you like to travel to? Insert a country: ')
+    country = input('\nWhere would you like to travel to? Insert a country: ')
     country_list = tci.col_values(1)
     validate_country()
     return country
@@ -58,9 +59,9 @@ def validate_country():
     Function if the country cannot be found within the country_list.
     """
     global country
-
-    if country in country_list:
-        print(f'>>>Thanks, the country {country} is in my list!')
+    converted_country = country.lower()
+    if converted_country in country_list:
+        print(f'>>>Thanks, the country {converted_country.capitalize()} is in my list!')
     else:
         search_country()
 
@@ -73,34 +74,64 @@ def search_country():
     """
     global country
     global country_list
-    print(f'\nOh no, the country {country} is not in my list.')
+    print(f'\n>>> Oh no, the country {country} is not in my list.')
     search_country_options = """
     \nWhat do you want to do now?
-    \n1: Maybe I mistyped, let me insert the first letter of the country I want to go to
-2: Show me an alphabetical list of all 132 countries"""
+    \n1: Search a country by its region
+2: Search in the whole list of available countries (132)"""
     print(search_country_options)
 
     while True:
-        no_country = input('\nPlease choose one of the options above: ')
+        no_country = input('\nPlease choose one of the options above (insert 1 or 2): ')
         if no_country == '1':
-            country_first_letter = input(
-                "\nAlright, let's try! Please insert the first (capitalized) letter of the country you are thinking of (e.g. 'A'): ")
-            first_letter_list = [entry for entry in country_list if entry.startswith(country_first_letter)]
-            print(f'Here is a list of all countries that start with {country_first_letter}: ')
-            print(first_letter_list)
-            country_from_letter = input('\nPlease insert one of the countries from the list above: ')
-            country = country_from_letter
-            validate_country()
+            search_country_by_region()
             break
         elif no_country == '2':
             print(country_list)
             country_from_list=input(
                 '\nPlease choose one of the countries listed above: ')
-            country=country_from_list
+            country = country_from_list
             validate_country()
             break
         else:
-            print("\nInvalid data entry, please insert either '1' or '2'.")
+            print('\nInvalid data entry, please insert either 1 or 2.')
+
+    return
+
+
+def search_country_by_region():
+    global country
+    global country_list
+
+    regions_list = regions.row_values(1)
+    print('Please choose from the regions below:')
+    print()
+            
+    for value in regions_list:
+        print(value.title())
+
+    regions_input = input('\nInsert a region to see all the countries listed in it: ')
+    converted_regions_input = regions_input.lower()
+    
+    if converted_regions_input in regions_list:
+        regions_column = regions.find(converted_regions_input)
+        regions_column_values = regions.col_values(regions_column.col)[1:]
+        print()
+
+        for value in regions_column_values:
+            print(value.title())
+                    
+        while True:
+            country_from_region = input('\nPlease insert one of the countries above: ')
+            converted_country_from_region = country_from_region.lower()
+
+            if converted_country_from_region in country_list:
+                break
+            else:
+                print('\nInvalid data entry, please try again.')                
+    
+    country = converted_country_from_region
+    validate_country()
 
     return
 
@@ -123,9 +154,9 @@ d: I'm fed up with tourism - I want to live there like a local!
 
     while True:
         level=input(
-            '\nPlease choose one of the options by inserting the according lowercase letter: ')
+            '\nPlease choose one of the options by inserting a, b, c or d: ')
         if level not in options:
-            print("\nInvalid data entry, please insert 'a', 'b', 'c' or 'd'.")
+            print("\nInvalid data entry, please insert a, b, c or d.")
         else:
             break
     return level
@@ -164,11 +195,11 @@ def main():
     """
     Calls all the functions above.
     """
-    days_input = vacation_days()
+    # days_input = vacation_days()
     country_input=vacation_country()
-    level_input = vacation_level()
-    tci_user = get_tci(country_input, level_input)
-    get_budget(tci_user, days_input)
+    # level_input = vacation_level()
+    # tci_user = get_tci(country_input, level_input)
+    # get_budget(tci_user, days_input)
 
 
 print("\nHappy to see you at the Travel Cost Calculator!")
