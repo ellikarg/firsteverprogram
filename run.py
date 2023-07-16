@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import time
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -16,7 +17,7 @@ tci = SHEET.worksheet('TCI')
 regions = SHEET.worksheet('Regions')
 data = tci.get_all_values()
 country = None
-country_list = None
+country_list = tci.col_values(1)[1:]
 
 
 def vacation_days():
@@ -25,7 +26,7 @@ def vacation_days():
     Validates the data that the user inserts.
     """
     while True:
-        days = input('\nHow many days do you have available? Insert here: ')
+        days = input('\n\n***\nHow many days do you have available? Insert here: ')
 
         try:
             days = int(days)
@@ -35,7 +36,7 @@ def vacation_days():
             print("Example: Insert '21' for three weeks")
 
         else:
-            print('>>> Thank you for your input!\n')
+            print('>>> Thank you for your input!')
             break
 
     return days
@@ -47,8 +48,9 @@ def vacation_country():
     """
     global country
     global country_list
-    country = input('\nWhere would you like to travel to? Insert a country: ')
-    country_list = tci.col_values(1)
+    country = input('\n\n***\nWhere would you like to travel to? Insert a country: ')
+    converted_country = country.lower()
+    country = converted_country
     validate_country()
     return country
 
@@ -59,12 +61,11 @@ def validate_country():
     Function if the country cannot be found within the country_list.
     """
     global country
-    converted_country = country.lower()
-    if converted_country in country_list:
-        print(f'>>>Thanks, the country {converted_country.capitalize()} is in my list!')
+    global country_list
+    if country in country_list:
+        print(f'>>> Thanks, the country {country.capitalize()} is in my database!')
     else:
         search_country()
-
     return
 
 
@@ -74,11 +75,12 @@ def search_country():
     """
     global country
     global country_list
-    print(f'\n>>> Oh no, the country {country} is not in my list.')
+
+    print(f'\n>>> Oh no, I cannot find the country {country}. Either it is because of a typo or you named a country that is not in my database of 132 available countries.')
     search_country_options = """
     \nWhat do you want to do now?
     \n1: Search a country by its region
-2: Search in the whole list of available countries (132)"""
+2: Search in the whole list of available countries"""
     print(search_country_options)
 
     while True:
@@ -87,11 +89,7 @@ def search_country():
             search_country_by_region()
             break
         elif no_country == '2':
-            print(country_list)
-            country_from_list=input(
-                '\nPlease choose one of the countries listed above: ')
-            country = country_from_list
-            validate_country()
+            search_country_by_list()
             break
         else:
             print('\nInvalid data entry, please insert either 1 or 2.')
@@ -100,37 +98,71 @@ def search_country():
 
 
 def search_country_by_region():
+    """
+    Gives the user the option to search a country from a list of regions.
+    """
     global country
     global country_list
 
     regions_list = regions.row_values(1)
-    print('Please choose from the regions below:')
+    print('\nPlease choose from the regions below:')
     print()
             
     for value in regions_list:
         print(value.title())
 
-    regions_input = input('\nInsert a region to see all the countries listed in it: ')
-    converted_regions_input = regions_input.lower()
-    
-    if converted_regions_input in regions_list:
-        regions_column = regions.find(converted_regions_input)
-        regions_column_values = regions.col_values(regions_column.col)[1:]
-        print()
+    while True:
+        regions_input = input('\nInsert a region to see all the countries listed in it: ')
+        converted_regions_input = regions_input.lower()
+        
+        if converted_regions_input in regions_list:
+            regions_column = regions.find(converted_regions_input)
+            regions_column_values = regions.col_values(regions_column.col)[1:]
+            print()
 
-        for value in regions_column_values:
-            print(value.title())
-                    
-        while True:
-            country_from_region = input('\nPlease insert one of the countries above: ')
-            converted_country_from_region = country_from_region.lower()
+            for value in regions_column_values:
+                print(value.title())
+                        
+            while True:
+                country_from_region = input('\nPlease insert one of the countries listed above: ')
+                converted_country_from_region = country_from_region.lower()
 
-            if converted_country_from_region in country_list:
-                break
-            else:
-                print('\nInvalid data entry, please try again.')                
-    
+                if converted_country_from_region in country_list:
+                    break
+                else:
+                    print('\nInvalid data entry, please try again.')
+            break           
+        else:
+            print('\nInvalid data entry, please try again.')
+
     country = converted_country_from_region
+    validate_country()
+
+    return
+
+
+def search_country_by_list():
+    """
+    Gives the user the option to search a country from the list of all 132 countries available.
+    """
+    global country
+    global country_list
+    
+    print()
+
+    for value in country_list:
+        print(value.title())
+    
+    while True:
+        country_from_list=input('\nPlease choose one of the countries listed above: ')
+        converted_country_from_list = country_from_list.lower()
+
+        if converted_country_from_list in country_list:
+            break
+        else:
+            print('\nInvalid data entry, please try again.')
+
+    country = converted_country_from_list
     validate_country()
 
     return
@@ -142,19 +174,18 @@ def vacation_level():
     Validates the data that the user inserts.
     """
     options=['a', 'b', 'c', 'd']
-    print('\nWhich level of adventure/comfort do you want to experience?\n')
+    print('\n\n***\nWhich level of adventure/comfort do you want to experience?')
     vacation_level_options="""
-    Please choose a letter from the following options:
+Please choose a letter from the following options:
 a: I'll travel like a backpacker
 b: I'll want some fancy hotels and food once in a while
 c: I'm all luxury
-d: I'm fed up with tourism - I want to live there like a local!
-    """
+d: I'm fed up with tourism - I want to live there like a local!"""
     print(vacation_level_options)
 
     while True:
         level=input(
-            '\nPlease choose one of the options by inserting a, b, c or d: ')
+            '\nPlease choose one of the options (a, b, c or d): ')
         if level not in options:
             print("\nInvalid data entry, please insert a, b, c or d.")
         else:
@@ -162,19 +193,26 @@ d: I'm fed up with tourism - I want to live there like a local!
     return level
 
 
-def get_tci(country_input, level_input):
+def get_tci(level_input):
     """
     Searches for the country the user entered in the excel worksheet 'TCI',
     Searches for the level of adventure/comfort that the user entered and
     Retrieves the correct Travel-Cost-Index (TCI) for the right country and
     The right level of adventure/comfort.
     """
-    print('\n>>>Thank you for your request!\nYour Travel-Cost-Index is being calculated...')
-    country_cell=tci.find(country_input)
+    global country
+
+    print()
+    print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
+    print('\n>>> Thank you for your request! I have all the data I need now.')
+    time.sleep(1)
+    print('\nYour Travel-Cost-Index is being calculated...')
+    country_cell=tci.find(country)
     country_row=country_cell.row
     level_cell=tci.find(level_input)
     level_col=level_cell.col
     country_level=tci.cell(country_row, level_col).value
+    time.sleep(3)
     return country_level
 
 
@@ -187,20 +225,32 @@ def get_budget(tci_user, days_input):
     global country
     print('\nYour Travel-Cost-Index is ready:')
     budget="{:.2f}".format(round(float(tci_user), 2) * days_input)
-    print(f'You will need {tci_user} € per day as soon as you are in {country}. For your travel of {days_input} days you will need a budget of {budget} €!')
-    return budget
+    print(f'\nYou will need {tci_user} € per day as soon as you are in {country}. For your travel of {days_input} days you will need a budget of {budget} €!')
+    print()
+    print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
+    print('\nThank you for using the Travel Cost Calculator!')
+    print('\nRemember this is only an estimation based on data from other travellers and can vary from individual to individual.')
+    print('\nIf you want to check out the origin of my database, please have a look at those two websites:')
+    print('\nhttps://www.budgetyourtrip.com/africa/rankings')
+    print('https://livingcost.org/cost')
+    print()
+    return
 
 
 def main():
     """
     Calls all the functions above.
     """
-    # days_input = vacation_days()
+    days_input = vacation_days()
     country_input=vacation_country()
-    # level_input = vacation_level()
-    # tci_user = get_tci(country_input, level_input)
-    # get_budget(tci_user, days_input)
+    level_input = vacation_level()
+    tci_user = get_tci(level_input)
+    get_budget(tci_user, days_input)
 
 
-print("\nHappy to see you at the Travel Cost Calculator!")
+print('\nHappy to see you at the Travel Cost Calculator!')
+print('\nWith this calculator you can estimate the budget you will need when travelling within a specific country.')
+print('\nAll I need to know from you is how many days you have available, to which country you want to go to and at which level of comfort you want to travel.')
+print("\nLet's get started!")
+print('-------------------------------------------------')
 main()
