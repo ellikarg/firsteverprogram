@@ -29,15 +29,6 @@ Live Site
     - [Python Packages](#python-packages)
     - [Other Tech](#other-tech)
   - [Testing](#testing)
-  - [Development](#development)
-    - [GitHub](#github)
-    - [Working With Python](#working-with-python)
-      - [Venv](#venv)
-      - [Packages](#packages)
-      - [Debugging](#debugging)
-    - [Google Sheets](#google-sheets)
-      - [Creating Sheets](#creating-sheets)
-      - [API Credentials](#api-credentials)
   - [Deployment](#deployment)
     - [Heroku](#heroku)
   - [Credits](#credits)
@@ -138,19 +129,17 @@ There are multiple functions being triggered when the user starts inserting data
 
 ### Python Packages
 
-<ul>
-  <li> [gpspread](https://pypi.org/project/gspread/): to retrieve data from the google workbook</li>
-  <li> time: to give the user time to read the reactions to her/his data entry or instructions from the programme</li>
-  <li> [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html): to validate credentials and grant access to google service accounts</li>
-</ul>
+- [gpspread](https://pypi.org/project/gspread/): to retrieve data from the google workbook
+- time: to give the user time to read the reactions to her/his data entry or instructions from the programme
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html): to validate credentials and grant access to google service accounts
+
 
 ### Other Tech
 
-<ul>
-  <li>[Draw.io](www.draw.io) : to generate the flow chart</li>
-  <li>[Windows Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b): to generate screenshots for the README.md</li>
-  <li>[PEP8](https://pep8ci.herokuapp.com/): to validate the Python code</li>
-</ul>
+- [Draw.io](www.draw.io) : to generate the flow chart
+- [Windows Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b): to generate screenshots for the README.md
+- [PEP8](https://pep8ci.herokuapp.com/): to validate the Python code
+
 
 ---
 
@@ -160,33 +149,18 @@ There are multiple functions being triggered when the user starts inserting data
 
 ---
 
-## Development
-
-### GitHub
-
-#### Cloning
-
-#### Editing
-
-### Working With Python
-
-#### Venv
-
-#### Packages
-
-#### Debugging
-
-### Google Sheets
-
-#### Creating Sheets
-
-#### API Credentials
-
----
-
 ## Deployment
 
 ### Heroku
+
+This project was deployed using Code Institute's mock terminal for Heroku.
+
+Steps for deployment:
+- Fork or clone this repository
+- Create a new Heroku app
+- Set the buildbacks to Python and NodeJS in that order
+- Link the Heroku app to the repository
+- Click on Deploy
 
 ---
 
@@ -196,15 +170,19 @@ There are multiple functions being triggered when the user starts inserting data
 
 - The data about the travel cost indices for different countries was retrieved from this website: https://www.budgetyourtrip.com/asia/rankings
 - the data for the living cost indices was retrieved from the ranking on this website: https://livingcost.org/cost
-- both data bases were merged in excel
-- 
-
+- [stack overflow](https://stackoverflow.com/) was used for any kind of insecurities about how to use a method or function, as well as for specific questions or smaller bugs
+- [w3 schools](https://www.w3schools.com/python/python_try_except.asp) was used to remember the exact syntax of functions or methods
+- The love-sandwich project was used as an inspiration and in order to connect the google sheet to the programme
+  
 ### Media
 
-
+No media was used for this programme.
 
 ### Acknowledgements
 
-
+Thank yous go to:
+- my mentor for giving me tips and support in three interesting and helpful mentoring sessions
+- Ed, one of the tutors, who helped me again - this time with a problem of my repository
+- And finally, thanks to my flatmates and friends who distracted me in the right moments (for example when I was stuck with a problem) and made me jump in cool water or enjoy the sun before getting back to my code ;)
 
 ---
