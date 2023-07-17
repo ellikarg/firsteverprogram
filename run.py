@@ -67,7 +67,7 @@ def validate_country():
 
     if country in country_list:
         print(f'>>> Thanks, the country {country.title()} is in my \
-database!')
+database!\n')
         time.sleep(1)
     else:
         search_country()
@@ -189,7 +189,7 @@ def vacation_level():
     """
     options = ['a', 'b', 'c', 'd']
     print()
-    print(textwrap.fill('***Which level of adventure/comfort do you want to \
+    print(textwrap.fill('***\nWhich level of adventure/comfort do you want to \
 experience?'))
     vacation_level_options = """
 Please choose a letter from the following options:
