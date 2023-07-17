@@ -278,7 +278,8 @@ def main():
 
 print('\nHappy to see you at the Travel Cost Calculator!\n')
 print (textwrap.fill('With this calculator you can estimate the budget you will need \
-when travelling within a specific country.\n'))
+when travelling within a specific country.'))
+print()
 print (textwrap.fill('All I need to know from you is how many days you have available, \
 to which country you want to go to and at which level of comfort you \
 want to travel.'))
