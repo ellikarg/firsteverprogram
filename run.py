@@ -35,6 +35,7 @@ Insert here:\n')
             print('Example: Insert "21" for three weeks')
         else:
             print('>>> Thank you for your input!')
+            time.sleep(2)
             break
 
     return days
@@ -51,7 +52,7 @@ Insert a country:\n')
     converted_country = country.lower()
     country = converted_country
     validate_country()
-    
+
     return country
 
 
@@ -62,11 +63,11 @@ def validate_country():
     """
     global country
     global country_list
-    
+
     if country in country_list:
-        print(f'>>> Thanks, the country {country.capitalize()} is in my \
+        print(f'>>> Thanks, the country {country.title()} is in my \
 database!')
-        time.sleep(1)
+        time.sleep(2)
     else:
         search_country()
 
@@ -215,14 +216,14 @@ def get_tci(level_input):
     print()
     print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
     print('\n>>> Thank you for your request! I have all the data I need now.')
-    time.sleep(1)
+    time.sleep(2)
     print('\nYour Travel-Cost-Index is being calculated...')
     country_cell = tci.find(country)
     country_row = country_cell.row
     level_cell = tci.find(level_input)
     level_col = level_cell.col
     country_level = tci.cell(country_row, level_col).value
-    time.sleep(3)
+    time.sleep(2)
 
     return country_level
 
@@ -237,13 +238,16 @@ def get_budget(tci_user, days_input):
     print('\nYour Travel-Cost-Index is ready:')
     budget = "{:.2f}".format(round(float(tci_user), 2) * days_input)
     print(f'\nYou will need {tci_user} € per day as soon as you are in \
-{country}. For your travel of {days_input} days you will need a \
+{country.title()}. For your travel of {days_input} days you will need a \
 budget of {budget} €!')
     print()
+    time.sleep(2)
     print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
     print('\nThank you for using the Travel Cost Calculator!')
+    time.sleep(2)
     print('\nRemember this is only an estimation based on data from other \
 travellers and can vary from individual to individual.')
+    time.sleep(2)
     print('\nIf you want to check out the origin of my database, please \
 have a look at those two websites:')
     print('\nhttps://www.budgetyourtrip.com/africa/rankings')
