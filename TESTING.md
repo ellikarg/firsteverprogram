@@ -11,6 +11,7 @@
 * [MANUAL TESTING](#manual-testing)
   * [Manual Python Testing](#manual-python-testing)
   * [Testing User Stories](#testing-user-stories)
+  * [Full Testing](#full-testing)
 * [BUGS](#bugs)
   * [Solved Bugs](#solved-bugs)
   * [Known Bugs](#known-bugs)
@@ -57,6 +58,16 @@ I have manually tested this project by doing the following:
 |  Goals | How are they achieved? |
 | :--- | :--- |
 | I want to understand the data, the underlying logic of the programme and how the data is validated | The interested person can check the data in the google spreadsheet and get the links to the websites where the Indices can be found from the README.md. The code is written according to the [python style guidlines](https://peps.python.org/pep-0008/#introduction) to ensure easy and clear readibility. The validation is done with while loops and try/except statements. |
+
+### Full Testing
+
+`Main Page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| The Sites title | Link directs the user back to the home page | Clicked title | Home page reloads | Pass |
+
+
 
 - - -
 
