@@ -23,8 +23,6 @@ Live Site
     - [Logical Flow](#logical-flow)
   - [Features](#features)
     - [Existing Features](#existing-features)
-      - [UX](#ux)
-      - [Keywords](#keywords)
     - [Features Left to Implement](#features-left-to-implement)
   - [Data Model](#data-model)
   - [Technologies Used](#technologies-used)
@@ -113,16 +111,25 @@ The logic behind the programme is displayed below in a flow chart that is made w
 ## Features
 
 ### Existing Features
-
-#### UX
-
-#### Keywords
+<ul>
+  <li>Entering the programme</li>
+  <li>Accepting user input</li>
+  <li>Input validation and error-checking for each user input with while loops</li>
+  <li>Guiding the user by reactions to her/his input</li>
+  <li>Saving input as variables</li>
+  <li>Calculating an Index based on the variables</li>
+</ul>
 
 ### Features Left to Implement
+<ul>
+<li>Having a main menu where the user can always come back to</li>
+<li>Having the questions displayed on different pages</li>
+</ul>
 
 ---
 
 ## Data Model
+
 
 ---
 
