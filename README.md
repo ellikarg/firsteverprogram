@@ -104,7 +104,7 @@ The logic behind the programme is displayed below in a flow chart that is made w
 ### Logical Flow
 
 <details><summary>Flow Chart</summary>
-<img src = "docs/Travel-Cost-Calculator_flow.png"></details>
+<img src = "docs/tci_flow.png"></details>
 
 ---
 
@@ -129,7 +129,8 @@ The logic behind the programme is displayed below in a flow chart that is made w
 ---
 
 ## Data Model
-
+I use a google workbook to access the data that I retrieved and combined from [these two websites](#media). There are three worksheets, one containing the travel-cost-indices, one containing the living-cost-indices that are used if a user chooses to travel by living in a country "like a local". And finally, there is one with the countries divided in regions in case the country the user inserts cannot be found in the data base and she/he can search for the country in a list of regions.
+There are multiple functions being triggered when the user starts inserting data, validating and storing the data in variables where they are used in the end to calculate a Travel Cost Index per day and for the length of the whole trip.
 
 ---
 
@@ -137,7 +138,19 @@ The logic behind the programme is displayed below in a flow chart that is made w
 
 ### Python Packages
 
+<ul>
+  <li> [gpspread](https://pypi.org/project/gspread/): to retrieve data from the google workbook</li>
+  <li> time: to give the user time to read the reactions to her/his data entry or instructions from the programme</li>
+  <li> [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html): to validate credentials and grant access to google service accounts</li>
+</ul>
+
 ### Other Tech
+
+<ul>
+  <li>[Draw.io](www.draw.io) : to generate the flow chart</li>
+  <li>[Windows Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b): to generate screenshots for the README.md</li>
+  <li>[PEP8](https://pep8ci.herokuapp.com/): to validate the Python code</li>
+</ul>
 
 ---
 
