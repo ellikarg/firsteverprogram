@@ -43,7 +43,7 @@ I have manually tested this project by doing the following:
 
 | No | Bug | How I solved the issue |
 | :--- | :--- | :--- |
-| 1 | One bug that I spent a lot of time fixing on was that the gallery pictures would overlap the h3-headings when displayed in the grid with only one column (for small screens) | In the end I managed to fix it with a really good hint from my mentor: using the dev tools to make a border around each div-container of the grid-structure and then consequently checking all margin- and padding- and gap-values for the different screen sizes and how they behave when changed from one to another. |
+| 1 | One bug that I spent a lot of time fixing on was that I am using the global variable "country" in many functions and keep updating the variable in each function. At some point I got only error messages in the end when calculating the Travel Cost Index because the formular get_tci() was retrieving the country variable not as the last updated and validated version, but some stage before. | I remembered what is repeatedly stated in the course: to use print statements for debugging. So I printed out the variable at any stage where it is being updated - and that helped in the end to find the error in the formular validate_country() |
 
 - - -
 
