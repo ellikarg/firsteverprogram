@@ -83,9 +83,10 @@ def search_country():
     global country
     global country_list
 
-    print(f'\n>>> Oh no, I cannot find the country {country}. Either it is \
+    print()
+    print(textwrap.fill(f'>>> Oh no, I cannot find the country {country}. Either it is \
 because of a typo or you named a country that is not in my database \
-of 132 available countries.')
+of 132 available countries.'))
     search_country_options = """
     \nWhat do you want to do now?
     \n1: Search by regions
@@ -137,12 +138,14 @@ countries listed above:\n')
                 if converted_country_from_region in country_list:
                     break
                 else:
-                    print("\nThat did not work, maybe it's easier to use \
-the copy and paste function than typing it out!\n")
+                    print()
+                    print(textwrap.fill("That did not work, maybe it's easier to use \
+the copy and paste function than typing it out!\n"))
             break
         else:
-            print("\nThat did not work, maybe it's easier to use the copy \
-and paste function than typing it out!\n")
+            print()
+            print(textwrap.fill("That did not work, maybe it's easier to use the copy \
+and paste function than typing it out!\n"))
 
     country = converted_country_from_region
     validate_country()
@@ -169,8 +172,9 @@ listed above:\n')
         if converted_country_from_list in country_list:
             break
         else:
-            print("\nThat did not work, maybe it's easier to use the \
-copy and paste function than typing it out!\n")
+            print()
+            print(textwrap.fill("That did not work, maybe it's easier to use the \
+copy and paste function than typing it out!\n"))
 
     country = converted_country_from_list
     validate_country()
@@ -184,12 +188,13 @@ def vacation_level():
     To experience and validates the data that the user inserts.
     """
     options = ['a', 'b', 'c', 'd']
-    print('\n\n***\nWhich level of adventure/comfort do you want to \
-experience?')
+    print()
+    print(textwrap.fill('***Which level of adventure/comfort do you want to \
+experience?'))
     vacation_level_options = """
 Please choose a letter from the following options:
 a: I'll travel like a backpacker
-b: I'll want some comfy hotels and costly food - but only once in a while
+b: I'll want some comfy hotels and costly food once in a while
 c: I'm all luxury
 d: I'm fed up with tourism - I want to live there like a local!"""
     print(vacation_level_options)
@@ -236,22 +241,23 @@ def get_budget(tci_user, days_input):
     Of days the user has available for the travel.
     """
     global country
-    print('\nYour Travel-Cost-Index is ready:')
+    print('\nYour Travel-Cost-Index is ready:\n')
     tci_user_round = "{:.2f}".format(round(float(tci_user), 2))
     budget = "{:.2f}".format(round(float(tci_user), 2) * days_input)
-    print(f'\nYou will need {tci_user_round} € per day as soon as you are in \
+    print(textwrap.fill(f'You will need {tci_user_round} € per day as soon as you are in \
 {country.title()}. For your travel of {days_input} days you will need a \
-budget of {budget} €!')
+budget of {budget} €!'))
     print()
     time.sleep(2)
     print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
-    print('\nThank you for using the Travel Cost Calculator!')
+    print('\nThank you for using the Travel Cost Calculator!\n')
     time.sleep(1)
-    print('\nRemember this is only an estimation based on data from other \
-travellers and can vary from individual to individual.')
+    print(textwrap.fill('Remember this is only an estimation based on data from other \
+travellers and can vary from individual to individual.'))
     time.sleep(1)
-    print('\nIf you want to check out the origin of my database, please \
-have a look at those two websites:')
+    print()
+    print (textwrap.fill('If you want to check out the origin of my database, please \
+have a look at those two websites:'))
     print('\nhttps://www.budgetyourtrip.com/africa/rankings')
     print('https://livingcost.org/cost')
     print()
@@ -270,12 +276,12 @@ def main():
     get_budget(tci_user, days_input)
 
 
-print('\nHappy to see you at the Travel Cost Calculator!')
-print('\nWith this calculator you can estimate the budget you will need \
-when travelling within a specific country.')
-print('\nAll I need to know from you is how many days you have available, \
+print('\nHappy to see you at the Travel Cost Calculator!\n')
+print (textwrap.fill('With this calculator you can estimate the budget you will need \
+when travelling within a specific country.\n'))
+print (textwrap.fill('All I need to know from you is how many days you have available, \
 to which country you want to go to and at which level of comfort you \
-want to travel.')
+want to travel.'))
 print("\nLet's get started!")
 print('-------------------------------------------------')
 main()
