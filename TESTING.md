@@ -1,11 +1,6 @@
-# Alessio Mida -  Testing
+# Travel Cost Calculator -  Testing
 
 [Back to README](README.md)
-
-
-![finished_site](https://github.com/ellikarg/firsteverproject/assets/132999023/ff1544d5-2710-4520-89ff-560afb546bc7)
-
-Visit the deployed site: https://ellikarg.github.io/firsteverproject/index.html
 
 - - -
 
@@ -31,9 +26,11 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 
 ## AUTOMATED TESTING
 
-### Python Testing
-
 ### PEP8 Testing
+
+The code was passed through the [PEP8 linter](https://pep8ci.herokuapp.com/) and there are no problems
+<details><summary>Testing Result</summary>
+<img src = "docs/pep8_testing"></details>
 
 - - -
 
@@ -41,6 +38,9 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 
 ### Manual Python Testing
 
+I have manually tested this project by doing the following:
+- given invalid inputs: when the user inputs invalid data she/he is notified and asked to try again
+- tested in my loval terminal and the Code Institute Heroku terminal
 
  - - -
 
