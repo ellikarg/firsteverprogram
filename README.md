@@ -20,8 +20,7 @@ Live Site
       - [Interested Party](#interested-party)
     - [Initial Concept](#initial-concept)
   - [Logic](#logic)
-    - [Initial Flow](#initial-flow)
-    - [Python Logic](#python-logic)
+    - [Logical Flow](#logical-flow)
   - [Features](#features)
     - [Existing Features](#existing-features)
       - [UX](#ux)
@@ -102,11 +101,12 @@ The first idea came up when I was thinking about the question how many days I co
 
 ## Logic
 
+The logic behind the programme is displayed below in a flow chart that is made with [draw.io](#technologies-used).
 
+### Logical Flow
 
-### Initial Flow
-
-### Python Logic
+<details><summary>Flow Chart</summary>
+<img src = "docs/Travel-Cost-Calculator_flow.png"></details>
 
 ---
 
