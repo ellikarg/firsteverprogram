@@ -20,27 +20,15 @@ Live Site
       - [Interested Party](#interested-party)
     - [Initial Concept](#initial-concept)
   - [Logic](#logic)
-    - [Initial Flow](#initial-flow)
-    - [Python Logic](#python-logic)
+    - [Logical Flow](#logical-flow)
   - [Features](#features)
     - [Existing Features](#existing-features)
-      - [UX](#ux)
-      - [Keywords](#keywords)
     - [Features Left to Implement](#features-left-to-implement)
   - [Data Model](#data-model)
   - [Technologies Used](#technologies-used)
     - [Python Packages](#python-packages)
     - [Other Tech](#other-tech)
   - [Testing](#testing)
-  - [Development](#development)
-    - [GitHub](#github)
-    - [Working With Python](#working-with-python)
-      - [Venv](#venv)
-      - [Packages](#packages)
-      - [Debugging](#debugging)
-    - [Google Sheets](#google-sheets)
-      - [Creating Sheets](#creating-sheets)
-      - [API Credentials](#api-credentials)
   - [Deployment](#deployment)
     - [Heroku](#heroku)
   - [Credits](#credits)
@@ -102,27 +90,38 @@ The first idea came up when I was thinking about the question how many days I co
 
 ## Logic
 
+The logic behind the programme is displayed below in a flow chart that is made with [draw.io](#technologies-used).
 
+### Logical Flow
 
-### Initial Flow
-
-### Python Logic
+<details><summary>Flow Chart</summary>
+<img src = "docs/tci_flow.png"></details>
 
 ---
 
 ## Features
 
 ### Existing Features
-
-#### UX
-
-#### Keywords
+<ul>
+  <li>Entering the programme</li>
+  <li>Accepting user input</li>
+  <li>Input validation and error-checking for each user input with while loops</li>
+  <li>Guiding the user by reactions to her/his input</li>
+  <li>Saving input as variables</li>
+  <li>Calculating an Index based on the variables</li>
+</ul>
 
 ### Features Left to Implement
+<ul>
+<li>Having a main menu where the user can always come back to</li>
+<li>Having the questions displayed on different pages</li>
+</ul>
 
 ---
 
 ## Data Model
+I use a google workbook to access the data that I retrieved and combined from [these two websites](#media). There are three worksheets, one containing the travel-cost-indices, one containing the living-cost-indices that are used if a user chooses to travel by living in a country "like a local". And finally, there is one with the countries divided in regions in case the country the user inserts cannot be found in the data base and she/he can search for the country in a list of regions.
+There are multiple functions being triggered when the user starts inserting data, validating and storing the data in variables where they are used in the end to calculate a Travel Cost Index per day and for the length of the whole trip.
 
 ---
 
@@ -130,7 +129,17 @@ The first idea came up when I was thinking about the question how many days I co
 
 ### Python Packages
 
+- [gpspread](https://pypi.org/project/gspread/): to retrieve data from the google workbook
+- time: to give the user time to read the reactions to her/his data entry or instructions from the programme
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html): to validate credentials and grant access to google service accounts
+
+
 ### Other Tech
+
+- [Draw.io](www.draw.io) : to generate the flow chart
+- [Windows Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b): to generate screenshots for the README.md
+- [PEP8](https://pep8ci.herokuapp.com/): to validate the Python code
+
 
 ---
 
@@ -140,33 +149,18 @@ The first idea came up when I was thinking about the question how many days I co
 
 ---
 
-## Development
-
-### GitHub
-
-#### Cloning
-
-#### Editing
-
-### Working With Python
-
-#### Venv
-
-#### Packages
-
-#### Debugging
-
-### Google Sheets
-
-#### Creating Sheets
-
-#### API Credentials
-
----
-
 ## Deployment
 
 ### Heroku
+
+This project was deployed using Code Institute's mock terminal for Heroku.
+
+Steps for deployment:
+- Fork or clone this repository
+- Create a new Heroku app
+- Set the buildbacks to Python and NodeJS in that order
+- Link the Heroku app to the repository
+- Click on Deploy
 
 ---
 
@@ -176,15 +170,19 @@ The first idea came up when I was thinking about the question how many days I co
 
 - The data about the travel cost indices for different countries was retrieved from this website: https://www.budgetyourtrip.com/asia/rankings
 - the data for the living cost indices was retrieved from the ranking on this website: https://livingcost.org/cost
-- both data bases were merged in excel
-- 
-
+- [stack overflow](https://stackoverflow.com/) was used for any kind of insecurities about how to use a method or function, as well as for specific questions or smaller bugs
+- [w3 schools](https://www.w3schools.com/python/python_try_except.asp) was used to remember the exact syntax of functions or methods
+- The love-sandwich project was used as an inspiration and in order to connect the google sheet to the programme
+  
 ### Media
 
-
+No media was used for this programme.
 
 ### Acknowledgements
 
-
+Thank yous go to:
+- my mentor for giving me tips and support in three interesting and helpful mentoring sessions
+- Ed, one of the tutors, who helped me again - this time with a problem of my repository
+- And finally, thanks to my flatmates and friends who distracted me in the right moments (for example when I was stuck with a problem) and made me jump in cool water or enjoy the sun before getting back to my code ;)
 
 ---
