@@ -10,6 +10,7 @@
   * [PEP8 Testing](#pep8-testing)
 * [MANUAL TESTING](#manual-testing)
   * [Manual Python Testing](#manual-python-testing)
+  * [Testing User Stories](#testing-user-stories)
 * [BUGS](#bugs)
   * [Solved Bugs](#solved-bugs)
   * [Known Bugs](#known-bugs)
@@ -35,7 +36,24 @@ I have manually tested this project by doing the following:
 - given invalid inputs: when the user inputs invalid data she/he is notified and asked to try again
 - tested in my loval terminal and the Code Institute Heroku terminal
 
- - - -
+
+### Testing User Stories
+
+`First Time Visitors`
+
+| Goals | How are they achieved? |
+| :--- | :--- |
+| I want to be able to use the Travel Cost Calculator by inserting data and choosing options | The Travel Cost Calculator lets the user insert data after it asked certain questions and gives options to choose from. |
+| I want the Travel Cost Calculator to give me a Travel Cost Index as a result. | The Travel Cost Calculator calculates the Index based on the validated user input. |
+
+`Returning Visitors`
+
+|  Goals | How are they achieved? |
+| :--- | :--- |
+| I want to check the Travel Cost Index for every travel that I have in mind. | The user can rerun the programme as many times as she/he wants, repeating it before different travels or to compare the different levels of adventure/comfort |
+
+- - -
+
 
 ## BUGS
 
