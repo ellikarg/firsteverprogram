@@ -23,7 +23,7 @@
 
 The code was passed through the [PEP8 linter](https://pep8ci.herokuapp.com/) and there are no problems
 <details><summary>Testing Result</summary>
-<img src = "docs/pep8_testing"></details>
+<img src = "docs/pep8_testing.PNG"></details>
 
 - - -
 
