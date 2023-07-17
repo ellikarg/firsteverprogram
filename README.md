@@ -2,8 +2,9 @@
 
 Welcome to the Travel Cost Calculator - a friendly tool to help you estimate how much money you will need for your next travel!
 
-Mockup
-Live Site
+<img src = "docs/tci_mockup.PNG">
+
+[Link to the deployed website](https://travel-cost-calculator-3797e090db48.herokuapp.com/)
 
 ---
 
