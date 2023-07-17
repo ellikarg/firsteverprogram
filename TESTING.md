@@ -1,39 +1,31 @@
-# Alessio Mida -  Testing
+# Travel Cost Calculator -  Testing
 
 [Back to README](README.md)
-
-
-![finished_site](https://github.com/ellikarg/firsteverproject/assets/132999023/ff1544d5-2710-4520-89ff-560afb546bc7)
-
-Visit the deployed site: https://ellikarg.github.io/firsteverproject/index.html
 
 - - -
 
 ## CONTENTS
 
 * [AUTOMATED TESTING](#automated-testing)
-  * [W3C Validator](#w3c-validator)
-  * [Lighthouse](#lighthouse)
-  * [WAVE Testing](#wave-testing)
+  * [PEP8 Testing](#pep8-testing)
 * [MANUAL TESTING](#manual-testing)
+  * [Manual Python Testing](#manual-python-testing)
   * [Testing User Stories](#testing-user-stories)
   * [Full Testing](#full-testing)
 * [BUGS](#bugs)
   * [Solved Bugs](#solved-bugs)
   * [Known Bugs](#known-bugs)
 
-During development I made use of Google Chrome Developer Tools to ensure everything was working correctly and to assist with troubleshooting when things were not working as expected. The automated and manual testing was unfortunately only done at the end.
-
-I have gone through each page using Google Chrome Developer Tools to ensure that each page is responsive on a variety of different screen sizes and devices.
-
 
 - - -
 
 ## AUTOMATED TESTING
 
-### Python Testing
-
 ### PEP8 Testing
+
+The code was passed through the [PEP8 linter](https://pep8ci.herokuapp.com/) and there are no problems
+<details><summary>Testing Result</summary>
+<img src = "docs/pep8_testing.PNG"></details>
 
 - - -
 
@@ -41,8 +33,46 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 
 ### Manual Python Testing
 
+I have manually tested this project by doing the following:
+- given invalid inputs: when the user inputs invalid data she/he is notified and asked to try again
+- tested in my loval terminal and the Code Institute Heroku terminal
 
- - - -
+
+### Testing User Stories
+
+`First Time Visitors`
+
+| Goals | How are they achieved? |
+| :--- | :--- |
+| I want to be able to use the Travel Cost Calculator by inserting data and choosing options | The Travel Cost Calculator lets the user insert data after it asked certain questions and gives options to choose from. |
+| I want the Travel Cost Calculator to give me a Travel Cost Index as a result. | The Travel Cost Calculator calculates the Index based on the validated user input. |
+
+`Returning Visitors`
+
+|  Goals | How are they achieved? |
+| :--- | :--- |
+| I want to check the Travel Cost Index befor every travel that I have in mind. | The user can rerun the programme as many times as she/he wants, repeating it before different travels or to compare the different levels of adventure/comfort |
+
+`Interested Party`
+
+|  Goals | How are they achieved? |
+| :--- | :--- |
+| I want to understand the data, the underlying logic of the programme and how the data is validated | The interested person can check the data in the google spreadsheet and get the links to the websites where the Indices can be found from the README.md. The code is written according to the [python style guidlines](https://peps.python.org/pep-0008/#introduction) to ensure easy and clear readibility. The validation is done with while loops and try/except statements. |
+
+### Full Testing
+
+`Main Page`
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Entering the programme | The app starts with a few lines stating what it is about and how it works | I ran the app | App starts running | Pass |
+| Accepting user input | The app should accept the user input at every stage in the programme where it asks the user for information | I inserted data in every possible input field | The app validates the data and stores it in variables | Pass |
+| Input validation and error-checking for each user input | The app should validate the input | I tried out different data input to test the validation | Data is validated appropriately | Pass |
+| Guiding the user by reactions to her/his input | The app should give feedback on whether the input meets the input criteria or not. If not, it should ask to insert the data again | I inserted different data types and input to test the reactions | The app gives feedback on whether the criteria are met or not and asks for input again if they are not met | Pass |
+| Saving input as variables | The app should save the data input in variables | The whole app was run several times with different data input | The app stores the data inserted in variables and uses them for the final TCI (Travel Cost Index) calculation | Pass |
+| Calculating an Index based on the variables | The app should show a calculated Index in the end | The whole app was run several times with different data input | The app calculates the TCI based on the data input | Pass |
+
+- - -
 
 ## BUGS
 
@@ -50,9 +80,7 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 
 | No | Bug | How I solved the issue |
 | :--- | :--- | :--- |
-| 1 | One bug that I spent a lot of time fixing on was that the gallery pictures would overlap the h3-headings when displayed in the grid with only one column (for small screens) | In the end I managed to fix it with a really good hint from my mentor: using the dev tools to make a border around each div-container of the grid-structure and then consequently checking all margin- and padding- and gap-values for the different screen sizes and how they behave when changed from one to another. |
-| 2 | Another bug that took me a bit to solve was the round image-container on the index page, because it would always loose its shape when viewed on different screen sizes although I had given it a fixed size | In the end I watched many flex-box tutorials and when my mentor showed me the help with the borders around the flexbox-items, I understood that I have to use another div-element as flex-element in order for the round image-container not to be responsive, but the div around it. |
-
+| 1 | One bug that I spent a lot of time fixing on was that I am using the global variable "country" in many functions and keep updating the variable in each function. At some point I got only error messages in the end when calculating the Travel Cost Index because the formular get_tci() was retrieving the country variable not as the last updated and validated version, but some stage before. | I remembered what is repeatedly stated in the course: to use print statements for debugging. So I printed out the variable at any stage where it is being updated - and that helped in the end to find the error in the formular validate_country() |
 
 - - -
 
@@ -60,4 +88,4 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 
 | No | Bug | |
 | :--- | :--- | :--- |
-| 1 | Two of the gallery images were oversized on the iPhone 8 in the safari browser | Strangely, on an iPhone SE (also in the safari browser), this was not a problem at all. |
+| 1 | No known bugs |  |
