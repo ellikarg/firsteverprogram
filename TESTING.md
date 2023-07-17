@@ -50,10 +50,15 @@ I have manually tested this project by doing the following:
 
 |  Goals | How are they achieved? |
 | :--- | :--- |
-| I want to check the Travel Cost Index for every travel that I have in mind. | The user can rerun the programme as many times as she/he wants, repeating it before different travels or to compare the different levels of adventure/comfort |
+| I want to check the Travel Cost Index befor every travel that I have in mind. | The user can rerun the programme as many times as she/he wants, repeating it before different travels or to compare the different levels of adventure/comfort |
+
+`Interested Party`
+
+|  Goals | How are they achieved? |
+| :--- | :--- |
+| I want to understand the data, the underlying logic of the programme and how the data is validated | The interested person can check the data in the google spreadsheet and get the links to the websites where the Indices can be found from the README.md. The code is written according to the [python style guidlines](https://peps.python.org/pep-0008/#introduction) to ensure easy and clear readibility. The validation is done with while loops and try/except statements. |
 
 - - -
-
 
 ## BUGS
 
