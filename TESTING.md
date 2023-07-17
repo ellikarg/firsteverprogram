@@ -65,9 +65,12 @@ I have manually tested this project by doing the following:
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| The Sites title | Link directs the user back to the home page | Clicked title | Home page reloads | Pass |
-
-
+| Entering the programme | The app starts with a few lines stating what it is about and how it works | I ran the app | App starts running | Pass |
+| Accepting user input | The app should accept the user input at every stage in the programme where it asks the user for information | I inserted data in every possible input field | The app validates the data and stores it in variables | Pass |
+| Input validation and error-checking for each user input | The app should validate the input | I tried out different data input to test the validation | Data is validated appropriately | Pass |
+| Guiding the user by reactions to her/his input | The app should give feedback on whether the input meets the input criteria or not. If not, it should ask to insert the data again | I inserted different data types and input to test the reactions | The app gives feedback on whether the criteria are met or not and asks for input again if they are not met | Pass |
+| Saving input as variables | The app should save the data input in variables | The whole app was run several times with different data input | The app stores the data inserted in variables and uses them for the final TCI (Travel Cost Index) calculation | Pass |
+| Calculating an Index based on the variables | The app should show a calculated Index in the end | The whole app was run several times with different data input | The app calculates the TCI based on the data input | Pass |
 
 - - -
 
