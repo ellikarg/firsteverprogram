@@ -67,7 +67,7 @@ The goal of this programme is to provide knowledge of what costs can be expected
 
 #### First Time User
 <ul>
-  <li>as a first time user I am interested in the travel costs that I can expect on a daily basis as well as for the whole length of my travel</li>
+  <li>as a first time user I am interested in the travel costs that I can expect on a daily basis as well as for the whole length of my travel, choosing a level of adventure/comfort that fits my needs</li>
   <li>as a programmer I would like to be able to provide a clear, useful and easy to use programme</li>
 </ul>
 
@@ -121,7 +121,8 @@ The logic behind the programme is displayed below in a flow chart that is made w
 ---
 
 ## Data Model
-I use a google workbook to access the data that I retrieved and combined from [these two websites](#media). There are three worksheets, one containing the travel-cost-indices, one containing the living-cost-indices that are used if a user chooses to travel by living in a country "like a local". And finally, there is one with the countries divided in regions in case the country the user inserts cannot be found in the data base and she/he can search for the country in a list of regions.
+I use a google workbook to access the data that I retrieved and combined from [two different websites](#media). There are three worksheets, one containing the travel-cost-indices: here I used the Travel-Cost-Indices from the website budgetyourtrip as the value for option b in the adventure/comfort choice (a bit of comfort). To gain a value that could fit to a backpacker trip, I divided the value by 2. For the luxury-level I multiplied the value by 3. And finally, for the local-level I found a website livingcost.org that lists the average living cost expenses for many countries. This list can also be found in the worksheet CoL (Cost of Living). The third worksheet shows the countries divided in regions in case the country the user inserts cannot be found in the data base and she/he can search for the country in a list of regions.
+
 There are multiple functions being triggered when the user starts inserting data, validating and storing the data in variables where they are used in the end to calculate a Travel Cost Index per day and for the length of the whole trip.
 
 ---
@@ -132,6 +133,7 @@ There are multiple functions being triggered when the user starts inserting data
 
 - [gpspread](https://pypi.org/project/gspread/): to retrieve data from the google workbook
 - time: to give the user time to read the reactions to her/his data entry or instructions from the programme
+- textwrap: to wrap the strings (instructions, feedback, etc.) after 70 characters
 - [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html): to validate credentials and grant access to google service accounts
 
 
@@ -183,7 +185,7 @@ No media was used for this programme.
 
 Thank yous go to:
 - my mentor Jubril Akolade for giving me tips and support in three interesting and helpful mentoring sessions
-- Ed, one of the tutors, who helped me again - this time with a problem of my repository
+- Ed, one of the tutors, who helped me again - this time with a problem of my github repository
 - And finally, thanks to my flatmates and friends who distracted me in the right moments (for example when I was stuck with a problem) and made me jump in cool water or enjoy the sun before getting back to my code ;)
 
 ---
